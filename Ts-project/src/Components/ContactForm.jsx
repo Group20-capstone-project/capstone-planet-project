@@ -1,10 +1,22 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const FORM_ENDPOINT = "https://jsonplaceholder.typicode.com/posts"
 
 function ContactForm() {
   const [status, setStatus] = useState({ type: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  useEffect(() => {
+    if (!status.message) {
+      return undefined
+    }
+
+    const messageTimer = setTimeout(() => {
+      setStatus({ type: "", message: "" })
+    }, 4000)
+
+    return () => clearTimeout(messageTimer)
+  }, [status.message])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

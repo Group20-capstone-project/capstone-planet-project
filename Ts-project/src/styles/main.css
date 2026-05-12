@@ -42,14 +42,29 @@ body {
   justify-content: space-between;
 }
 
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  text-decoration: none;
+}
+
 .logo-img {
   width: 42px;
   height: 42px;
+  flex: 0 0 42px;
+  object-fit: contain;
 }
-.logo-text {
-color: white;
-margin-left: 12px;
 
+.logo-text {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0;
+  max-width: 165px;
+  text-wrap: balance;
 }
 
 
@@ -626,15 +641,32 @@ button:disabled {
 @media (max-width: 768px) {
 
   .header {
-    padding: 20px;
+    padding: 18px 20px;
+    gap: 18px;
   }
 
   .header nav {
-    gap: 14px;
+    gap: 12px;
+    flex-shrink: 0;
   }
 
   .header nav a {
     font-size: 12px;
+  }
+
+  .logo {
+    gap: 9px;
+  }
+
+  .logo-img {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .logo-text {
+    font-size: 12px;
+    max-width: 88px;
   }
 
   .hero,
